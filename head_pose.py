@@ -163,7 +163,7 @@ class HeadPoseEstimator:
                 if warnings and elapsed_time >= self.POSE_WARNING_THRESHOLD:
                     self.current_warnings = warnings
                     color = (0, 0, 255)  # Red for warning
-                    y_pos = 90
+                    y_pos = 180
                     pose_text = f"Pitch: {smoothed_angles[0]:.1f}°, Yaw: {smoothed_angles[1]:.1f}°, Roll: {smoothed_angles[2]:.1f}°"
                     cv2.putText(frame, pose_text, (10, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
                     for i, warn in enumerate(warnings):

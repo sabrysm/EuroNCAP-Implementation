@@ -138,6 +138,8 @@ class DecisionLayer:
                     self.alert_thread = threading.Thread(target=self._play_alert)
                     self.alert_thread.daemon = True  # Allow thread to be terminated with main program
                     self.alert_thread.start()
+                    # Stop alert after 2 seconds
+                    threading.Timer(2.0, self._stop_alert).start()
             
             cv2.putText(final_frame, f"Driver Out of Frame! ({elapsed_time:.1f}s)", 
                    (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
@@ -169,7 +171,7 @@ class DecisionLayer:
                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         
         # Gaze direction
-        y_position += 30
+        y_position += 90
         if 'gaze_direction' in detection_results and detection_results['gaze_direction']:
             cv2.putText(final_frame, f"Gaze: {detection_results['gaze_direction']}", 
                        (10, y_position), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)

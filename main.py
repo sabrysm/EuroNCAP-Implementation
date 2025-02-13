@@ -26,6 +26,8 @@ def main():
         # Display the frame
         cv2.imshow('EuroNCAP Implementation', processed_frame)
 
+        print(detection_results)
+
         # Break the loop on 'q' key press
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
