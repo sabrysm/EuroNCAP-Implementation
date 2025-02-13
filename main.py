@@ -1,7 +1,14 @@
 import cv2
 from decision_layer import DecisionLayer
+import winsound
 
 def main():
+    # Test audio
+    try:
+        winsound.PlaySound(None, winsound.SND_PURGE)  # Clear any playing sounds
+    except Exception as e:
+        print(f"Warning: Audio device not available - {e}")
+
     # Initialize the decision layer
     decision_layer = DecisionLayer(model_path='./best.pt')
 
