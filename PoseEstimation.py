@@ -150,6 +150,10 @@ while cap.isOpened():
             # Display eye state, Perclos, and yawning status
             cv2.putText(image, f"Eye State: {eye_state}", (20, 50), 
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            
+            cv2.putText(image, f"EAR: {smoothed_ear:.2f}", (400, 250), 
+            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
             cv2.putText(image, f"Perclos: {perclos:.2f}", (20, 100), 
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             cv2.putText(image, f"Drowsiness: {drowsiness_status}", (20, 150), 
